@@ -1,0 +1,24 @@
+[project]
+name = "fastapi-course"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Vadim EvPh", email = "vadim_evph@localhost" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.20.1",
+    "asyncpg>=0.32.0",
+    "fastapi[all]>=0.162.0",
+    "pwdlib[argon2]>=0.3.1",
+    "pyjwt>=2.15.1",
+    "sqlalchemy[asyncio]>=2.1.6",
+]
+
+[project.scripts]
+fastapi-course = "fastapi_course:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
