@@ -11,5 +11,5 @@ wheels/
 .venv/
 
 # Other
-.env
+*.env*
 *oauth2.py
