@@ -68,14 +68,15 @@ async def get_post(
         .group_by(PostORMModel.id)
     )
     result = await db.execute(stmt)
-    post_orm, vote_count = result.first()
+    row = result.first()
 
-    if post_orm is None:
+    if row is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Post with id = {id} was not found"
         )
-    # return post_orm
+    post_orm, vote_count = row
+
     return {
         "post": post_orm,
         "vote_count": vote_count

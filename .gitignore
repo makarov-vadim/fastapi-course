@@ -12,4 +12,3 @@ wheels/
 
 # Other
 *.env*
-*oauth2.py
