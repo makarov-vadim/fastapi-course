@@ -8,14 +8,16 @@ from .routers import post, user, auth, vote
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with async_engine.begin() as conn:
-        await conn.run_sync(BaseORMModel.metadata.create_all)
+    # async with async_engine.begin() as conn:
+    #     await conn.run_sync(BaseORMModel.metadata.create_all)
     yield
     await async_engine.dispose()
 
 
 origins = [
-    "https://www.google.com"
+    "http://localhost:3000",      # Для React/Vue
+    "http://127.0.0.1:5500",      # Для Live Server
+    "http://localhost:8080",      # Для других фреймворков
 ]
 app = FastAPI(lifespan=lifespan)
 app.add_middleware(

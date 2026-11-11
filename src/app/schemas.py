@@ -74,8 +74,8 @@ class VoteBaseSchema(BaseModel):
     post_id: int
 
 
-class VoteUpdateSchema(VoteBaseSchema):
-    dir: Literal[0, 1]
+class VoteCreateSchema(VoteBaseSchema):
+    pass
 
 
 class VoteResponseSchema(VoteBaseSchema):

@@ -14,7 +14,6 @@ from ..oauth2 import create_access_token
 
 
 router = APIRouter(
-    # prefix="/posts",
     tags=["Authentication"]
 )
 
