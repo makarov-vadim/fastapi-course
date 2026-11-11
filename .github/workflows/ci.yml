@@ -44,8 +44,12 @@ jobs:
 
       - name: Run tests
         env:
-          DATABASE_URL_asyncpg: "postgresql+asyncpg://postgres:password123@localhost:5432/fastapi_test"
-          SECRET_KEY: "test_secret_key_for_ci"
+          DB_HOST: "localhost"
+          DB_PORT: "5432"
+          DB_USER: ${{ secrets.CI_POSTGRES_USER }}
+          DB_PASS: ${{ secrets.CI_POSTGRES_PASSWORD }}
+          DB_NAME: ${{ secrets.CI_POSTGRES_DB }}
+          SECRET_KEY: ${{ secrets.CI_SECRET_KEY }}
           ALGORITHM: "HS256"
           ACCESS_TOKEN_EXPIRE_MINUTES: 30
         run: uv run pytest -v -s
